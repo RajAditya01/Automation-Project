@@ -15,14 +15,14 @@ public class LoginTest {
     @BeforeMethod
     public void setup() {
         driver = new ChromeDriver();
-        driver.get("https://example.com/login");
+        driver.get("https://practicetestautomation.com/practice-test-login/);
         loginPage = new LoginPage(driver);
     }
 
     @Test
     public void testLogin() {
-        loginPage.enterUsername("tomsmith");
-        loginPage.enterPassword("SuperSecretPassword!");
+        loginPage.enterUsername("aditya");
+        loginPage.enterPassword("Aditya@321");
         loginPage.clickLogin();
         Assert.assertTrue(loginPage.getSuccessMessage().contains("You logged into a secure area!"));
     }
