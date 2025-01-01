@@ -32,3 +32,5 @@ public class CheckboxPage {
         return driver.findElement(secondCheckbox).isSelected();
     }
 }
+
+
