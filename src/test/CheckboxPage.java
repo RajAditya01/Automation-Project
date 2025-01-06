@@ -1,5 +1,4 @@
 package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -31,4 +30,10 @@ public class CheckboxPage {
     public boolean isSecondCheckboxChecked() {
         return driver.findElement(secondCheckbox).isSelected();
     }
+<<<<<<< HEAD
 }
+=======
+}
+
+
+>>>>>>> 66ebf831aeff3a19c270b18de1c5dd7e72d979ff
