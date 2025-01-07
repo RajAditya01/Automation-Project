@@ -9,18 +9,16 @@ public class Locator {
 
     public static void main(String[] args) throws InterruptedException {
 
-
-        // implicit wait - 2 seconds time out
-
         System.setProperty("webdriver.chrome.driver", "C:\\BrowserDriver\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
 
+        // implicit wait - 2 seconds time out
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         driver.get("https://rahulshettyacademy.com/locatorspractice/");
 
-        driver.findElement(By.id("inputUsername")).sendKeys("rahul");
+        driver.findElement(By.id("inputUsername")).sendKeys("aditya");
 
         driver.findElement(By.name("inputPassword")).sendKeys("hello123");
 
@@ -57,5 +55,6 @@ public class Locator {
         driver.findElement(By.id("chkboxOne")).click();
 
         driver.findElement(By.xpath("//button[contains(@class,'submit')]")).click();
+
     }
 }

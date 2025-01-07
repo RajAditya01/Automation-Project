@@ -3,6 +3,7 @@ package org.example;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 //import org.junit.Assert; // Import JUnit
 
 import java.time.Duration;
@@ -11,7 +12,7 @@ public class Locators2 {
 
     public static void main(String[] args) throws InterruptedException {
 
-        String name = "rahul";
+        String name = "aditya";
 
         System.setProperty("webdriver.chrome.driver", "C:\\BrowserDriver\\chromedriver.exe");
 
