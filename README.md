@@ -6,8 +6,6 @@ Welcome to the **Selenium Automation Learning Repository**, your ultimate guide 
 
 ## 🎯 What You'll Learn
 
-By the end of this learning journey, you will:
-
 1. **Master Selenium WebDriver**:
    - Strong Core Java fundamentals.
    - Real-time Selenium challenges with 100+ examples.
