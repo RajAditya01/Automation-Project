@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dacf9721-5650-4921-bf02-8a21f6ec02a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StaticDropDown.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UI Dropdowns EditBoxes Error Valdiation Assignment/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UI Dropdowns EditBoxes Error Valdiation Assignment/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UI Dropdowns EditBoxes Error Valdiation Assignment/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UI Dropdowns EditBoxes Error Valdiation Assignment/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UI Dropdowns EditBoxes Error Valdiation Assignment/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UI Dropdowns EditBoxes Error Valdiation Assignment/src/main/java/org/example/FormTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UI Dropdowns EditBoxes Error Valdiation Assignment/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Automation Project" beforeDir="false" afterPath="$PROJECT_DIR$/../Automation Project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +28,43 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$/.." source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;MERGED&quot;,
+      &quot;assignee&quot;: &quot;RajAditya01&quot;
+    },
+    {
+      &quot;state&quot;: &quot;MERGED&quot;,
+      &quot;author&quot;: &quot;RajAditya01&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;MERGED&quot;,
+    &quot;author&quot;: &quot;RajAditya01&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/RajAditya01/Automation-Project.git&quot;,
+    &quot;accountId&quot;: &quot;41e5dea2-ddbe-4b54-86fe-cf272c516195&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -33,23 +76,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Locator.executor": "Run",
-    "Application.Locator3.executor": "Run",
-    "Application.Locators2.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.StaticDropDown.executor": "Run",
-    "Application.WindowActivities.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/adity/IdeaProjects/landingPageTest/src/test/java",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Locator.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Locator3.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Locators2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StaticDropDown.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WindowActivities.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/adity/IdeaProjects/landingPageTest/src/test/java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.StaticDropDown">
+}</component>
+  <component name="RunManager" selected="Application.Locator3">
     <configuration name="Locator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Locator" />
       <module name="landingPageTest" />
