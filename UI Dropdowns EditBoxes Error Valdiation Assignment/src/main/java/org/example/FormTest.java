@@ -1,105 +1,69 @@
 package org.example;
 
+import java.util.Arrays;
+import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class FormTest {
-    public static void main(String[] args) {
+public class base {
+
+    public static void main(String[] args) throws InterruptedException {
         // Set the ChromeDriver path
-        System.setProperty("webdriver.chrome.driver", "C:\\BrowserDriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
 
         // Initialize WebDriver
         WebDriver driver = new ChromeDriver();
 
+        // Products to add to cart
+        String[] itemsNeeded = {"Cucumber", "Broccoli", "Beetroot"};
+
         try {
             // Open the website
-            driver.get("https://rahulshettyacademy.com/angularpractice/"); // Replace with your website URL
-            driver.manage().window().maximize();
+            driver.get("https://rahulshettyacademy.com/seleniumPractise/");
 
-            // Pause to allow page to load
-            Thread.sleep(2000);
+            // Wait for the page to load completely
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h4.product-name")));
 
-            // **Testing Name Field**
-            WebElement nameField = driver.findElement(By.name("name")); // Replace with the actual name field identifier
-            nameField.clear();
-            nameField.sendKeys("Aditya Raj");
-            assert nameField.getAttribute("value").equals("Aditya Raj") : "Name field test failed";
+            // Add items to cart
+            addItems(driver, itemsNeeded);
 
-            // **Testing Email Field**
-            WebElement emailField = driver.findElement(By.name("email"));
-            emailField.clear();
-            emailField.sendKeys("adityavishal903@gmail.com");
-            assert emailField.getAttribute("value").contains("@") : "Invalid email format";
-
-            // **Testing Password Field**
-            WebElement passwordField = driver.findElement(By.id("exampleInputPassword1"));
-            passwordField.sendKeys("password123");
-            assert passwordField.getAttribute("type").equals("password") : "Password field test failed";
-
-            // **Testing Checkbox**
-            WebElement checkbox = driver.findElement(By.id("exampleCheck1")); // Replace with the checkbox ID
-            checkbox.click();
-            assert checkbox.isSelected() : "Checkbox selection failed";
-
-            // **Testing Gender Dropdown**
-            WebElement genderDropdown = driver.findElement(By.id("exampleFormControlSelect1"));
-            Select select = new Select(genderDropdown);
-            select.selectByVisibleText("Male"); // Select "Male"
-            assert select.getFirstSelectedOption().getText().equals("Male") : "Dropdown selection test failed";
-
-            // **Testing Radio Buttons (Employment Status)**
-            WebElement studentRadio = driver.findElement(By.id("inlineRadio1"));
-            studentRadio.click();
-            assert studentRadio.isSelected() : "Radio button selection failed for 'Student'";
-
-            // **Testing Disabled Radio Button**
-            WebElement entrepreneurRadio = driver.findElement(By.id("inlineRadio3")); // Correct ID for entrepreneur radio button
-            assert !entrepreneurRadio.isEnabled() : "Disabled radio button is clickable";
-
-            // **Testing Date of Birth**
-            WebElement dobField = driver.findElement(By.name("bday"));
-            dobField.sendKeys("2003-08-11");
-            assert dobField.getAttribute("value").equals("2003-08-11") : "Date of Birth field test failed";
-
-            // **Submitting the Form**
-            WebElement submitButton = driver.findElement(By.xpath("//input[@type='submit' and @value='Submit']"));
-            submitButton.click();
-
-            // Pause to wait for the success message
-            Thread.sleep(2000);
-
-            // Locate and verify the success message
-            WebElement successMessage = driver.findElement(By.cssSelector("div.alert.alert-success"));
-            String messageText = successMessage.getText();
-
-            // Assertion to validate the success message contains "Success!"
-            assert messageText.contains("Success!") : "Form submission test failed";
-
-            // Print the success message
-            System.out.println("Form submission successful! Message displayed: " + messageText);
-
-
-            // **Negative Test: Submit with Empty Fields**
-            driver.navigate().refresh(); // Refresh the page to reset the form
-            Thread.sleep(2000); // Allow page to refresh
-            submitButton = driver.findElement(By.xpath("//input[@type='submit' and @value='Submit']"));
-            submitButton.click();
-
-            // Pause to wait for the error message
-            Thread.sleep(2000);
-
-            // Locate and verify the error message
-            WebElement errorMessage = driver.findElement(By.className("error")); // Replace with actual class or locator for the error
-            assert errorMessage.isDisplayed() : "Error message not displayed for empty fields";
-
-        } catch (Exception e) {
-            e.printStackTrace();
         } finally {
             // Close the browser
             driver.quit();
+        }
+    }
+
+    public static void addItems(WebDriver driver, String[] itemsNeeded) {
+        int itemsAdded = 0;
+
+        // Get all product elements on the page
+        List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));
+
+        for (int i = 0; i < products.size(); i++) {
+            // Extract product name and format it to remove additional text
+            String[] name = products.get(i).getText().split("-");
+            String formattedName = name[0].trim();
+
+            // Convert the array to a list for easy search
+            List<String> itemsNeededList = Arrays.asList(itemsNeeded);
+
+            // Check if the current product is in the list of items to add
+            if (itemsNeededList.contains(formattedName)) {
+                itemsAdded++;
+
+                // Click on the "Add to Cart" button for the matched product
+                driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
+
+                // Exit loop if all required items are added
+                if (itemsAdded == itemsNeeded.length) {
+                    break;
+                }
+            }
         }
     }
 }

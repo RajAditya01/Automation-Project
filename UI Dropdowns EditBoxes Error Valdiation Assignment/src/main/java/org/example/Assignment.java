@@ -35,7 +35,7 @@ public class Assignment {
         driver.findElement(By.id("inlineRadio1")).click();
 
         // Enter the date of birth
-        driver.findElement(By.name("bday")).sendKeys("02/02/1992");
+        driver.findElement(By.name("bday")).sendKeys("11/08/2003");
 
         // Submit the form
         driver.findElement(By.cssSelector(".btn-success")).click();
