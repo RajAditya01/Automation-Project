@@ -9,11 +9,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class base {
+public class FormTest {
 
     public static void main(String[] args) throws InterruptedException {
         // Set the ChromeDriver path
-        System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\BrowserDriver\\chromedriver.exe");
+
 
         // Initialize WebDriver
         WebDriver driver = new ChromeDriver();
