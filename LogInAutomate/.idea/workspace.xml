@@ -4,12 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6e09b29-edf8-41b8-a26e-551d601df4f4" name="Changes" comment="" />
+    <list default="true" id="a6e09b29-edf8-41b8-a26e-551d601df4f4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../AutomateAjaxCallChildWindow/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AutomateAjaxCallChildWindow/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AutomateAjaxCallChildWindow/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AutomateAjaxCallChildWindow/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AutomateAjaxCallChildWindow/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AutomateAjaxCallChildWindow/src/test/java/org/example/AppTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "RajAditya01"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/RajAditya01/Automation-Project.git",
+    "accountId": "41e5dea2-ddbe-4b54-86fe-cf272c516195"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -21,6 +43,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "onboarding.tips.debug.path": "C:/Users/adity/IdeaProjects/LogInAutomate/src/Main.java",
     "project.structure.last.edited": "Modules",
