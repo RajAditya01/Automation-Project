@@ -4,9 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.JavascriptExecutor;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.time.Duration;
+import java.io.FileInputStream;
 import java.util.List;
 
 public class AutomationTest {
@@ -17,7 +19,6 @@ public class AutomationTest {
         WebDriver driver = new ChromeDriver();
 
         driver.manage().window().maximize();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             // Navigate to the website
@@ -41,13 +42,54 @@ public class AutomationTest {
             textBox.click();
             Thread.sleep(1000);
 
-            // Enter details and submit the form
-            driver.findElement(By.id("userName")).sendKeys("Aditya");
-            driver.findElement(By.id("userEmail")).sendKeys("adityavishal903@gmail.com");
-            driver.findElement(By.id("currentAddress")).sendKeys("KoperKharne Navi Mumbai");
-            driver.findElement(By.id("permanentAddress")).sendKeys("Muzaffarpur Bihar");
-            driver.findElement(By.id("submit")).click();
+            //Read the data from excel
+            String excelFilePath = "C:\\Users\\adity\\OneDrive\\Documents\\TestData.xlsx"; // Path to your Excel file
+            FileInputStream fis = new FileInputStream(excelFilePath);
+            Workbook workbook = new XSSFWorkbook(fis);
+            Sheet sheet = workbook.getSheetAt(0);
+
+            // Iterate through rows (skip header row)
+            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+                Row row = sheet.getRow(i);
+                String userName = row.getCell(0).getStringCellValue();
+                String userEmail = row.getCell(1).getStringCellValue();
+                String currentAddress = row.getCell(2).getStringCellValue();
+                String permanentAddress = row.getCell(3).getStringCellValue();
+
+                // Fill out the form
+                driver.findElement(By.id("userName")).clear();
+                driver.findElement(By.id("userName")).sendKeys(userName);
+
+                driver.findElement(By.id("userEmail")).clear();
+                driver.findElement(By.id("userEmail")).sendKeys(userEmail);
+
+                driver.findElement(By.id("currentAddress")).clear();
+                driver.findElement(By.id("currentAddress")).sendKeys(currentAddress);
+
+                driver.findElement(By.id("permanentAddress")).clear();
+                driver.findElement(By.id("permanentAddress")).sendKeys(permanentAddress);
+
+                // Scroll down and submit
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("window.scrollBy(0,500)");
+                driver.findElement(By.id("submit")).click();
+            }
+
+
+
+//            // Enter details and submit the form
+//            driver.findElement(By.id("userName")).sendKeys("Aditya");
+//            driver.findElement(By.id("userEmail")).sendKeys("adityavishal903@gmail.com");
+//            driver.findElement(By.id("currentAddress")).sendKeys("KoperKharne Navi Mumbai");
+//            driver.findElement(By.id("permanentAddress")).sendKeys("Muzaffarpur");
+//
+//            // Scroll down by 500 pixels
+//            JavascriptExecutor js = (JavascriptExecutor) driver;
+//            js.executeScript("window.scrollBy(0,500)");
+//
+//            driver.findElement(By.id("submit")).click();
 //            driver.findElement(By.xpath("//button[@id='submit']")).click();
+
             Thread.sleep(2000);
 
             // Expected values

@@ -12,7 +12,6 @@ public class AutomationAssignment {
     public static void main(String[] args) {
         // Setup WebDriver
         System.setProperty("webdriver.chrome.driver", "C:\\BrowserDriver\\chromedriver.exe");
-        // Initialize WebDriver
         WebDriver driver = new ChromeDriver();
 
         driver.manage().window().maximize();
@@ -45,25 +44,29 @@ public class AutomationAssignment {
             driver.findElement(By.id("currentAddress")).sendKeys("KoperKharne Navi Mumbai");
             driver.findElement(By.id("permanentAddress")).sendKeys("Muzaffarpur Bihar");
 
-            // Wait for the submit button to be clickable and then click
+            // Wait for the submit button to be clickable
             WebElement submitButton = driver.findElement(By.id("submit"));
-            wait.until(ExpectedConditions.elementToBeClickable(submitButton));
-            submitButton.click();
+            try {
+                wait.until(ExpectedConditions.elementToBeClickable(submitButton));
+                submitButton.click();
+            } catch (ElementClickInterceptedException e) {
+                System.out.println("Submit button was blocked. Attempting JavaScript click.");
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", submitButton);
+            }
+
             Thread.sleep(2000);
 
-            // Expected values
+            // Verify output
             String expectedName = "Name:Aditya";
             String expectedEmail = "Email:adityavishal903@gmail.com";
             String expectedCurrentAddress = "Current Address :KoperKharne Navi Mumbai";
             String expectedPermanentAddress = "Permananet Address :Muzaffarpur Bihar";
 
-            // Fetch the output
             WebElement outputName = driver.findElement(By.id("name"));
             WebElement outputEmail = driver.findElement(By.id("email"));
             WebElement outputCurrentAddress = driver.findElement(By.id("currentAddress"));
             WebElement outputPermanentAddress = driver.findElement(By.id("permanentAddress"));
 
-            // Verify the output
             if (outputName.getText().equals(expectedName)) {
                 System.out.println("Name verified successfully!");
             } else {
@@ -90,83 +93,35 @@ public class AutomationAssignment {
 
             Thread.sleep(2000);
 
-            // Click on 'Alerts, Frames & Windows'
+            // Handle iframe in 'Frames' section
             driver.findElement(By.xpath("//div[@class='header-text' and contains(., 'Alerts, Frame & Windows')]")).click();
             Thread.sleep(2000);
 
-            // Click on 'Frames'
             driver.findElement(By.xpath("//li[@id='item-2']//span[text()='Frames']")).click();
             Thread.sleep(2000);
 
-            // Fetch the iframe and switch to it
-            WebElement iframe = driver.findElement(By.xpath("//iframe[@id='frame1']"));
+            WebElement iframe = driver.findElement(By.id("frame1"));
             driver.switchTo().frame(iframe);
-            Thread.sleep(1000);
-
-            // Fetch the content from the text box inside the iframe
             WebElement sampleHeading = driver.findElement(By.id("sampleHeading"));
-            System.out.println("Get details from both the text box: " + sampleHeading.getText());
+            System.out.println("Text inside iframe: " + sampleHeading.getText());
 
-            // Switch back to the main content
             driver.switchTo().defaultContent();
             Thread.sleep(1000);
 
-            // Click on 'Click me' next to the "On button click, confirm box will appear"
+            // Handle alert actions
             driver.findElement(By.xpath("//div[@class='element-list collapse show']//li[@id='item-1']")).click();
             Thread.sleep(2000);
 
-            // Click the alert button to trigger the confirm box
             driver.findElement(By.id("alertButton")).click();
-            Thread.sleep(1000);
-
-            // Switching to the alert and printing its text
             Alert alert = driver.switchTo().alert();
             System.out.println("Alert Text: " + alert.getText());
-
-            // Accepting the alert
             alert.accept();
 
-            // Handle Timer Alert (uncommented and fixed)
-            driver.findElement(By.id("timerAlertButton")).click();
-            Thread.sleep(5000);  // Wait for the timer alert
-            alert = driver.switchTo().alert();
-            System.out.println("On Button Click Alert Text: " + alert.getText());
-            alert.accept();
-            Thread.sleep(2000);
-
-            // Handle Confirm Box Alert
-            driver.findElement(By.id("confirmButton")).click();
-            alert = driver.switchTo().alert();
-            System.out.println("On Button Click Confirm box will appear: " + alert.getText());
-            alert.accept();
-            Thread.sleep(2000);
-
-            // Handle Prompt Box Alert
-            driver.findElement(By.id("promtButton")).click();
-            alert = driver.switchTo().alert();
-            System.out.println("On Button Click Prompt box will appear: " + alert.getText());
-            alert.accept();
-
-            // Click 'Browser Windows'
-            driver.findElement(By.xpath("//span[normalize-space()='Browser Windows']")).click();
-            Thread.sleep(1000);
-            driver.findElement(By.xpath("//button[@id='tabButton']")).click();
-
-            for (String handle : driver.getWindowHandles()) {
-                driver.switchTo().window(handle);
-            }
-            String newTabText = driver.findElement(By.tagName("body")).getText();
-            System.out.println("New Tab Text: " + newTabText);
-
-            driver.close();
-
-            // Switch back to the original window
-            driver.switchTo().window(driver.getWindowHandles().iterator().next());
+            // Add further actions as required...
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            // Close the browser after all actions are completed
             driver.quit();
         }
     }
