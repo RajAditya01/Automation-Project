@@ -1,0 +1,27 @@
+Duration: 3hrs
+Instructions:
+Writing efficient, clean, readable and maintainable test code
+Test code organization and structure
+Handling test data and test environments
+Error and Exception handling
+Logging and reporting
+Follow screenshots naming convention
+Generate random valid name, email and number, wherever applicable
+Calculate dob based on age
+Actual result post execution 
+
+Question:
+Navigate to https://demoqa.com 
+Click on Elements 
+Get List of Items under Elements 
+Select Text Box 
+Enter details and submit the form 
+Fetch the output generated post submission and verify each fields with the expected value
+Click on Alerts, Frames & Windows  
+Click Frames 
+Get details from both the text box 
+Click Alerts 
+Click on ‘Click me’ next to On button click, confirm box will appear and fetch the output text generated in green, post click on respective button in pop up. 
+Click Browser Windows 
+Click on New Tab and get text from it. 
+
