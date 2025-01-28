@@ -44,11 +44,25 @@ public class AutomationTest {
 
             //Read the data from excel
             String excelFilePath = "C:\\Users\\adity\\OneDrive\\Documents\\TestData.xlsx"; // Path to your Excel file
+            // Open Excel file
             FileInputStream fis = new FileInputStream(excelFilePath);
             Workbook workbook = new XSSFWorkbook(fis);
             Sheet sheet = workbook.getSheetAt(0);
 
-            // Iterate through rows (skip header row)
+            // Navigate to the website
+            driver.get("https://demoqa.com");
+            Thread.sleep(2000);
+
+            // Click on 'Elements'
+            driver.findElement(By.xpath("//div[@class='category-cards']//div[1]//div[1]//div[2]//*[name()='svg']")).click();
+            Thread.sleep(2000);
+
+            // Select 'Text Box'
+            WebElement TextBox = driver.findElement(By.xpath("//div[contains(@class,'element-list collapse show')]//li[@id='item-0']"));
+            TextBox.click();
+            Thread.sleep(1000);
+
+            // Iterate through rows in Excel (skip header row)
             for (int i = 1; i <= sheet.getLastRowNum(); i++) {
                 Row row = sheet.getRow(i);
                 String userName = row.getCell(0).getStringCellValue();
@@ -69,10 +83,26 @@ public class AutomationTest {
                 driver.findElement(By.id("permanentAddress")).clear();
                 driver.findElement(By.id("permanentAddress")).sendKeys(permanentAddress);
 
-                // Scroll down and submit
+                // Submit the form
                 JavascriptExecutor js = (JavascriptExecutor) driver;
                 js.executeScript("window.scrollBy(0,500)");
                 driver.findElement(By.id("submit")).click();
+                Thread.sleep(1000);
+
+                // Verify the output
+                String actualName = driver.findElement(By.id("name")).getText().replace("Name:", "").trim();
+                String actualEmail = driver.findElement(By.id("email")).getText().replace("Email:", "").trim();
+                String actualCurrentAddress = driver.findElement(By.id("currentAddress")).getText().replace("Current Address :", "").trim();
+                String actualPermanentAddress = driver.findElement(By.id("permanentAddress")).getText().replace("Permananet Address :", "").trim();
+
+                boolean isPass = userName.equals(actualName) &&
+                        userEmail.equals(actualEmail) &&
+                        currentAddress.equals(actualCurrentAddress) &&
+                        permanentAddress.equals(actualPermanentAddress);
+
+                // Write result to Excel
+                Cell resultCell = row.createCell(4);
+                resultCell.setCellValue(isPass ? "Pass" : "Fail");
             }
 
 
