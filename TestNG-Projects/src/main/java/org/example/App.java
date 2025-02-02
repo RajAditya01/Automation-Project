@@ -1,13 +1,20 @@
 package org.example;
 
-/**
- * Hello world!
- *
- */
-public class App 
+import org.junit.Test;
+
+public class App
 {
-    public static void main( String[] args )
+    @Test
+    public  void Demo()
     {
-        System.out.println( "Hello World!" );
+        System.out.println( "Hello World!" ); //Automation
+
+    }
+
+    @Test
+    public  void SecondTest()
+    {
+        System.out.println( "Byeeeeeeee!" ); //Automation
+
     }
 }
