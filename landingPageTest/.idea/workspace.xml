@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dacf9721-5650-4921-bf02-8a21f6ec02a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../UI Dropdowns EditBoxes Error Valdiation Assignment/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UI Dropdowns EditBoxes Error Valdiation Assignment/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UI Dropdowns EditBoxes Error Valdiation Assignment/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UI Dropdowns EditBoxes Error Valdiation Assignment/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UI Dropdowns EditBoxes Error Valdiation Assignment/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UI Dropdowns EditBoxes Error Valdiation Assignment/src/main/java/org/example/FormTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UI Dropdowns EditBoxes Error Valdiation Assignment/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Automation Project" beforeDir="false" afterPath="$PROJECT_DIR$/../Automation Project" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08-01-2025_23_56_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08-01-2025_23_56__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
